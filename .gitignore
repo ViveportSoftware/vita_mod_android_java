@@ -1,0 +1,11 @@
+# folders
+.gradle/
+.idea/
+dist/
+packages/
+temp/
+
+# files
+*.iml
+*.log
+local.properties
