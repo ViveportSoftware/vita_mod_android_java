@@ -65,6 +65,8 @@ android {
     buildToolsVersion "29.0.1"
 
     defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 29
         consumerProguardFiles 'proguard-consumer.txt'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
