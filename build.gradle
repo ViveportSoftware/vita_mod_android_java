@@ -61,12 +61,12 @@ apply plugin: 'com.android.library'
 
 // from plugin 'com.android.library'
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.1"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 28
         consumerProguardFiles 'proguard-consumer.txt'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
