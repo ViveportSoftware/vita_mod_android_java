@@ -134,22 +134,6 @@ publish {
 publishing {
     publications {
         mavenAndroid(MavenPublication) {
-            /*
-            artifactId = 'mod.desktop'
-            from components.java
-
-            pom {
-                licenses {
-                    license {
-                        name = 'The MIT License (MIT)'
-                        url = 'https://github.com/ViveportSoftware/vita_mod_desktop_java/blob/master/LICENSE.md'
-                    }
-                }
-                scm {
-                    url = 'https://github.com/ViveportSoftware/vita_mod_desktop_java'
-                }
-            }
-            */
             artifacts {
                 groupId "${project.group}"
                 artifactId "${rootProject.name}"
