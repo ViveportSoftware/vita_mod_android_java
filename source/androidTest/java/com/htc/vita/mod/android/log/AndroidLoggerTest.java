@@ -1,8 +1,7 @@
-package com.htc.vita.mod.android.test;
+package com.htc.vita.mod.android.log;
 
 import android.support.test.runner.AndroidJUnit4;
 import com.htc.vita.core.log.Logger;
-import com.htc.vita.mod.android.log.AndroidLogger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

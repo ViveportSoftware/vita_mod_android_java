@@ -1,11 +1,10 @@
-package com.htc.vita.mod.android.test;
+package com.htc.vita.mod.android.json;
 
 import android.support.test.runner.AndroidJUnit4;
 
 import com.htc.vita.core.json.JsonArray;
 import com.htc.vita.core.json.JsonFactory;
 import com.htc.vita.core.json.JsonObject;
-import com.htc.vita.mod.android.json.AndroidJsonFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
