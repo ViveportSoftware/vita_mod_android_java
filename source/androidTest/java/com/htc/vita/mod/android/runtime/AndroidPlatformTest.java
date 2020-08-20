@@ -29,7 +29,7 @@ public class AndroidPlatformTest {
     }
 
     @Test
-    public void default_1_getInstance() {
+    public void default_1_getMachineId() {
         Platform.register(AndroidPlatform.class);
         Platform platform = Platform.getInstance();
         Assert.assertNotNull(platform);
