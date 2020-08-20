@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AndroidJsonArray extends JsonArray {
-    private JSONArray mJSONArray;
+    private final JSONArray mJSONArray;
 
     public AndroidJsonArray(JSONArray jsonArray) {
         mJSONArray = jsonArray;

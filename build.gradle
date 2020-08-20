@@ -54,6 +54,9 @@ allprojects {
         maven {
             url 'https://dl.bintray.com/viveportsoftware/maven-public'
         }
+        maven {
+            url 'https://www.myget.org/F/viveportsoftware/maven'
+        }
     }
 }
 
@@ -119,7 +122,7 @@ afterEvaluate {
 }
 
 dependencies {
-    implementation 'com.htc.vita:core:0.1.12'
+    implementation 'com.htc.vita:core:0.1.16'
     testImplementation 'junit:junit:4.12'
 
     // from plugin 'com.android.library'
