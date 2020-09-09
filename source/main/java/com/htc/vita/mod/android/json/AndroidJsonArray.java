@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Locale;
+
 public class AndroidJsonArray extends JsonArray {
     private final JSONArray mJSONArray;
 
@@ -93,7 +95,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected JsonArray onInsertBoolean(int index, boolean value) {
+    protected JsonArray onInsertBoolean(
+            int index,
+            boolean value) {
         if (mJSONArray == null) {
             return this;
         }
@@ -105,9 +109,15 @@ public class AndroidJsonArray extends JsonArray {
                 int length = mJSONArray.length();
                     for (int i = length - 1; i > index; i--) {
                         boolean temp = mJSONArray.getBoolean(i - 1);
-                        mJSONArray.put(i, temp);
+                        mJSONArray.put(
+                                i,
+                                temp
+                        );
                     }
-                    mJSONArray.put(index, value);
+                    mJSONArray.put(
+                            index,
+                            value
+                    );
             }
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(e.toString());
@@ -116,7 +126,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected JsonArray onInsertDouble(int index, double value) {
+    protected JsonArray onInsertDouble(
+            int index,
+            double value) {
         if (mJSONArray == null) {
             return this;
         }
@@ -128,9 +140,15 @@ public class AndroidJsonArray extends JsonArray {
                 int length = mJSONArray.length();
                 for (int i = length - 1; i > index; i--) {
                     Object temp = mJSONArray.get(i - 1);
-                    mJSONArray.put(i, temp);
+                    mJSONArray.put(
+                            i,
+                            temp
+                    );
                 }
-                mJSONArray.put(index, value);
+                mJSONArray.put(
+                        index,
+                        value
+                );
             }
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(e.toString());
@@ -139,7 +157,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected JsonArray onInsertFloat(int index, float value) {
+    protected JsonArray onInsertFloat(
+            int index,
+            float value) {
         if (mJSONArray == null) {
             return this;
         }
@@ -151,9 +171,15 @@ public class AndroidJsonArray extends JsonArray {
                 int length = mJSONArray.length();
                 for (int i = length - 1; i > index; i--) {
                     Object temp = mJSONArray.get(i - 1);
-                    mJSONArray.put(i, temp);
+                    mJSONArray.put(
+                            i,
+                            temp
+                    );
                 }
-                mJSONArray.put(index, value);
+                mJSONArray.put(
+                        index,
+                        value
+                );
             }
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(e.toString());
@@ -162,7 +188,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected JsonArray onInsertInt(int index, int value) {
+    protected JsonArray onInsertInt(
+            int index,
+            int value) {
         if (mJSONArray == null) {
             return this;
         }
@@ -174,9 +202,15 @@ public class AndroidJsonArray extends JsonArray {
                 int length = mJSONArray.length();
                 for (int i = length - 1; i > index; i--) {
                     Object temp = mJSONArray.get(i - 1);
-                    mJSONArray.put(i, temp);
+                    mJSONArray.put(
+                            i,
+                            temp
+                    );
                 }
-                mJSONArray.put(index, value);
+                mJSONArray.put(
+                        index,
+                        value
+                );
             }
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(e.toString());
@@ -185,7 +219,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected JsonArray onInsertLong(int index, long value) {
+    protected JsonArray onInsertLong(
+            int index,
+            long value) {
         if (mJSONArray == null) {
             return this;
         }
@@ -197,9 +233,15 @@ public class AndroidJsonArray extends JsonArray {
                 int length = mJSONArray.length();
                 for (int i = length - 1; i > index; i--) {
                     Object temp = mJSONArray.get(i - 1);
-                    mJSONArray.put(i, temp);
+                    mJSONArray.put(
+                            i,
+                            temp
+                    );
                 }
-                mJSONArray.put(index, value);
+                mJSONArray.put(
+                        index,
+                        value
+                );
             }
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(e.toString());
@@ -208,7 +250,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected JsonArray onInsertString(int index, String value) {
+    protected JsonArray onInsertString(
+            int index,
+            String value) {
         if (mJSONArray == null) {
             return this;
         }
@@ -220,9 +264,15 @@ public class AndroidJsonArray extends JsonArray {
                 int length = mJSONArray.length();
                 for (int i = length - 1; i > index; i--) {
                     Object temp = mJSONArray.get(i - 1);
-                    mJSONArray.put(i, temp);
+                    mJSONArray.put(
+                            i,
+                            temp
+                    );
                 }
-                mJSONArray.put(index, value);
+                mJSONArray.put(
+                        index,
+                        value
+                );
             }
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(e.toString());
@@ -231,7 +281,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected JsonArray onInsertJsonArray(int index, JsonArray value) {
+    protected JsonArray onInsertJsonArray(
+            int index,
+            JsonArray value) {
         if (mJSONArray == null || value == null) {
             return this;
         }
@@ -244,9 +296,15 @@ public class AndroidJsonArray extends JsonArray {
                 int length = mJSONArray.length();
                 for (int i = length - 1; i > index; i--) {
                     Object temp = mJSONArray.get(i - 1);
-                    mJSONArray.put(i, temp);
+                    mJSONArray.put(
+                            i,
+                            temp
+                    );
                 }
-                mJSONArray.put(index, jsonArray);
+                mJSONArray.put(
+                        index,
+                        jsonArray
+                );
             }
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(e.toString());
@@ -255,7 +313,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected JsonArray onInsertJsonObject(int index, JsonObject value) {
+    protected JsonArray onInsertJsonObject(
+            int index,
+            JsonObject value) {
         if (mJSONArray == null || value == null) {
             return this;
         }
@@ -268,9 +328,15 @@ public class AndroidJsonArray extends JsonArray {
                 int length = mJSONArray.length();
                 for (int i = length - 1; i > index; i--) {
                     Object temp = mJSONArray.get(i - 1);
-                    mJSONArray.put(i, temp);
+                    mJSONArray.put(
+                            i,
+                            temp
+                    );
                 }
-                mJSONArray.put(index, jsonObject);
+                mJSONArray.put(
+                        index,
+                        jsonObject
+                );
             }
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(e.toString());
@@ -279,7 +345,9 @@ public class AndroidJsonArray extends JsonArray {
     }
 
     @Override
-    protected boolean onParseBoolean(int index, boolean defaultValue) {
+    protected boolean onParseBoolean(
+            int index,
+            boolean defaultValue) {
         boolean result = defaultValue;
         if (mJSONArray == null || mJSONArray.length() <= index) {
             return result;
@@ -287,13 +355,19 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getBoolean(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error("Can not parse boolean value by index: " + index);
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse boolean value by index: %d",
+                    index
+            ));
         }
         return result;
     }
 
     @Override
-    protected double onParseDouble(int index, double defaultValue) {
+    protected double onParseDouble(
+            int index,
+            double defaultValue) {
         double result = defaultValue;
         if (mJSONArray == null || mJSONArray.length() <= index) {
             return result;
@@ -301,13 +375,19 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getDouble(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error("Can not parse double value by index: " + index);
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse double value by index: %d",
+                    index
+            ));
         }
         return result;
     }
 
     @Override
-    protected float onParseFloat(int index, float defaultValue) {
+    protected float onParseFloat(
+            int index,
+            float defaultValue) {
         float result = defaultValue;
         if (mJSONArray == null || mJSONArray.length() <= index) {
             return result;
@@ -315,13 +395,19 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = (float) mJSONArray.getDouble(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error("Can not parse float value by index: " + index);
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse float value by index: %d",
+                    index
+            ));
         }
         return result;
     }
 
     @Override
-    protected int onParseInt(int index, int defaultValue) {
+    protected int onParseInt(
+            int index,
+            int defaultValue) {
         int result = defaultValue;
         if (mJSONArray == null || mJSONArray.length() <= index) {
             return result;
@@ -329,13 +415,19 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getInt(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error("Can not parse int value by index: " + index);
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse int value by index: %d",
+                    index
+            ));
         }
         return result;
     }
 
     @Override
-    protected long onParseLong(int index, long defaultValue) {
+    protected long onParseLong(
+            int index,
+            long defaultValue) {
         long result = defaultValue;
         if (mJSONArray == null || mJSONArray.length() <= index) {
             return result;
@@ -343,13 +435,19 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getLong(index);
         } catch (Exception e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error("Can not parse long value by index: " + index);
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse long value by index: %d",
+                    index
+            ));
         }
         return result;
     }
 
     @Override
-    protected String onParseString(int index, String defaultValue) {
+    protected String onParseString(
+            int index,
+            String defaultValue) {
         String result = defaultValue;
         if (mJSONArray == null || mJSONArray.length() <= index) {
             return result;
@@ -357,7 +455,11 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getString(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error("Can not parse String value by index: " + index);
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse String value by index: %d",
+                    index
+            ));
         }
         return result;
     }
@@ -373,7 +475,11 @@ public class AndroidJsonArray extends JsonArray {
                 return new AndroidJsonArray(jsonArray);
             }
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error("Can not parse JavaArray value by index: " + index);
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse JavaArray value by index: %d",
+                    index
+            ));
         }
         return null;
     }
@@ -389,7 +495,11 @@ public class AndroidJsonArray extends JsonArray {
                 return new AndroidJsonObject(jsonObject);
             }
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error("Can not parse JavaObject value by index: " + index);
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse JavaObject value by index: %d",
+                    index
+            ));
         }
         return null;
     }

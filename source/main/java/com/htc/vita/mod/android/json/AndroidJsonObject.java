@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Set;
 
 public class AndroidJsonObject extends JsonObject {
@@ -48,7 +49,9 @@ public class AndroidJsonObject extends JsonObject {
     }
 
     @Override
-    protected boolean onParseBoolean(String key, boolean defaultValue) {
+    protected boolean onParseBoolean(
+            String key,
+            boolean defaultValue) {
         boolean result = defaultValue;
         if (mJSONObject == null) {
             return result;
@@ -56,13 +59,19 @@ public class AndroidJsonObject extends JsonObject {
         try {
             result = mJSONObject.getBoolean(key);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error("Can not parse boolean value by key: " + key);
+            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse boolean value by key: %s",
+                    key
+            ));
         }
         return result;
     }
 
     @Override
-    protected double onParseDouble(String key, double defaultValue) {
+    protected double onParseDouble(
+            String key,
+            double defaultValue) {
         double result = defaultValue;
         if (mJSONObject == null) {
             return result;
@@ -70,13 +79,19 @@ public class AndroidJsonObject extends JsonObject {
         try {
             result = mJSONObject.getDouble(key);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error("Can not parse double value by key: " + key);
+            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse double value by key: %s",
+                    key
+            ));
         }
         return result;
     }
 
     @Override
-    protected float onParseFloat(String key, float defaultValue) {
+    protected float onParseFloat(
+            String key,
+            float defaultValue) {
         float result = defaultValue;
         if (mJSONObject == null) {
             return result;
@@ -84,13 +99,19 @@ public class AndroidJsonObject extends JsonObject {
         try {
             result = (float) mJSONObject.getDouble(key);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error("Can not parse float value by key: " + key);
+            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse float value by key: %s",
+                    key
+            ));
         }
         return result;
     }
 
     @Override
-    protected int onParseInt(String key, int defaultValue) {
+    protected int onParseInt(
+            String key,
+            int defaultValue) {
         int result = defaultValue;
         if (mJSONObject == null) {
             return result;
@@ -98,13 +119,19 @@ public class AndroidJsonObject extends JsonObject {
         try {
             result = mJSONObject.getInt(key);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error("Can not parse int value by key: " + key);
+            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse int value by key: %s",
+                    key
+            ));
         }
         return result;
     }
 
     @Override
-    protected long onParseLong(String key, long defaultValue) {
+    protected long onParseLong(
+            String key,
+            long defaultValue) {
         long result = defaultValue;
         if (mJSONObject == null) {
             return result;
@@ -112,13 +139,19 @@ public class AndroidJsonObject extends JsonObject {
         try {
             result = mJSONObject.getLong(key);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error("Can not parse long value by key: " + key);
+            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse long value by key: %s",
+                    key
+            ));
         }
         return result;
     }
 
     @Override
-    protected String onParseString(String key, String defaultValue) {
+    protected String onParseString(
+            String key,
+            String defaultValue) {
         String result = defaultValue;
         if (mJSONObject == null) {
             return result;
@@ -126,7 +159,11 @@ public class AndroidJsonObject extends JsonObject {
         try {
             result = mJSONObject.getString(key);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error("Can not parse String value by key: " + key);
+            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse String value by key: %s",
+                    key
+            ));
         }
         return result;
     }
@@ -142,7 +179,11 @@ public class AndroidJsonObject extends JsonObject {
                 return new AndroidJsonArray(jsonArray);
             }
         } catch (Exception e) {
-            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error("Can not parse JsonArray value by key: " + key);
+            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse JsonArray value by key: %s",
+                    key
+            ));
         }
         return null;
     }
@@ -158,20 +199,30 @@ public class AndroidJsonObject extends JsonObject {
                 return new AndroidJsonObject(jsonObject);
             }
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error("Can not parse JsonObject value by key: " + key);
+            Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
+                    "Can not parse JsonObject value by key: %s",
+                    key
+            ));
         }
         return null;
     }
 
     @Override
-    protected JsonObject onPutBoolean(String key, boolean value) {
+    protected JsonObject onPutBoolean(
+            String key,
+            boolean value) {
         if (mJSONObject == null) {
             return this;
         }
         try {
-            mJSONObject.put(key, value);
+            mJSONObject.put(
+                    key,
+                    value
+            );
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not put boolean value %s into JsonObject value by key: %s",
                     value,
                     key
@@ -181,14 +232,20 @@ public class AndroidJsonObject extends JsonObject {
     }
 
     @Override
-    protected JsonObject onPutDouble(String key, double value) {
+    protected JsonObject onPutDouble(
+            String key,
+            double value) {
         if (mJSONObject == null) {
             return this;
         }
         try {
-            mJSONObject.put(key, value);
+            mJSONObject.put(
+                    key,
+                    value
+            );
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not put double value %s into JsonObject value by key: %s",
                     value,
                     key
@@ -198,14 +255,20 @@ public class AndroidJsonObject extends JsonObject {
     }
 
     @Override
-    protected JsonObject onPutFloat(String key, float value) {
+    protected JsonObject onPutFloat(
+            String key,
+            float value) {
         if (mJSONObject == null) {
             return this;
         }
         try {
-            mJSONObject.put(key, value);
+            mJSONObject.put(
+                    key,
+                    value
+            );
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not put float value %s into JsonObject value by key: %s",
                     value,
                     key
@@ -215,14 +278,20 @@ public class AndroidJsonObject extends JsonObject {
     }
 
     @Override
-    protected JsonObject onPutInt(String key, int value) {
+    protected JsonObject onPutInt(
+            String key,
+            int value) {
         if (mJSONObject == null) {
             return this;
         }
         try {
-            mJSONObject.put(key, value);
+            mJSONObject.put(
+                    key,
+                    value
+            );
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not put int value %s into JsonObject value by key: %s",
                     value,
                     key
@@ -232,14 +301,20 @@ public class AndroidJsonObject extends JsonObject {
     }
 
     @Override
-    protected JsonObject onPutLong(String key, long value) {
+    protected JsonObject onPutLong(
+            String key,
+            long value) {
         if (mJSONObject == null) {
             return this;
         }
         try {
-            mJSONObject.put(key, value);
+            mJSONObject.put(
+                    key,
+                    value
+            );
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not put long value %s into JsonObject value by key: %s",
                     value,
                     key
@@ -249,14 +324,20 @@ public class AndroidJsonObject extends JsonObject {
     }
 
     @Override
-    protected JsonObject onPutString(String key, String value) {
+    protected JsonObject onPutString(
+            String key,
+            String value) {
         if (mJSONObject == null) {
             return this;
         }
         try {
-            mJSONObject.put(key, value);
+            mJSONObject.put(
+                    key,
+                    value
+            );
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not put String value %s into JsonObject value by key: %s",
                     value,
                     key
@@ -266,14 +347,20 @@ public class AndroidJsonObject extends JsonObject {
     }
 
     @Override
-    protected JsonObject onPutJsonArray(String key, JsonArray value) {
+    protected JsonObject onPutJsonArray(
+            String key,
+            JsonArray value) {
         if (mJSONObject == null) {
             return this;
         }
         try {
-            mJSONObject.put(key, ((AndroidJsonArray)value).getInnerInstance());
+            mJSONObject.put(
+                    key,
+                    ((AndroidJsonArray)value).getInnerInstance()
+            );
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not put JsonArray value into JsonObject value by key: %s",
                     key
             ));
@@ -282,14 +369,20 @@ public class AndroidJsonObject extends JsonObject {
     }
 
     @Override
-    protected JsonObject onPutJsonObject(String key, JsonObject value) {
+    protected JsonObject onPutJsonObject(
+            String key,
+            JsonObject value) {
         if (mJSONObject == null) {
             return this;
         }
         try {
-            mJSONObject.put(key, ((AndroidJsonObject)value).getInnerInstance());
+            mJSONObject.put(
+                    key,
+                    ((AndroidJsonObject)value).getInnerInstance()
+            );
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonObject.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not put JsonObject value into JsonObject value by key: %s",
                     key
             ));

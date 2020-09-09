@@ -8,6 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Locale;
+
 public class AndroidJsonFactory extends JsonFactory {
     @Override
     protected JsonArray onCreateJsonArray() {
@@ -20,7 +22,9 @@ public class AndroidJsonFactory extends JsonFactory {
     }
 
     @Override
-    protected <T> T onDeserializeObject(String s, Class<T> aClass) {
+    protected <T> T onDeserializeObject(
+            String content,
+            Class<T> aClass) {
         Logger.getInstance(AndroidJsonFactory.class.getSimpleName()).error(
                 "This implementation of JsonFactory does not support object deserialization!!"
         );
@@ -33,6 +37,7 @@ public class AndroidJsonFactory extends JsonFactory {
             return new AndroidJsonArray(new JSONArray(content));
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonFactory.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not get JsonArray from content: %s",
                     content
             ));
@@ -46,6 +51,7 @@ public class AndroidJsonFactory extends JsonFactory {
             return new AndroidJsonObject(new JSONObject(content));
         } catch (JSONException e) {
             Logger.getInstance(AndroidJsonFactory.class.getSimpleName()).error(String.format(
+                    Locale.ROOT,
                     "Can not get JsonObject from content: %s",
                     content
             ));
@@ -54,7 +60,7 @@ public class AndroidJsonFactory extends JsonFactory {
     }
 
     @Override
-    protected String onSerializeObject(Object o) {
+    protected String onSerializeObject(Object content) {
         Logger.getInstance(AndroidJsonFactory.class.getSimpleName()).error(
                 "This implementation of JsonFactory does not support object serialization!!"
         );
