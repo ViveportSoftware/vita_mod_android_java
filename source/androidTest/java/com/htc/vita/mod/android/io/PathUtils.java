@@ -73,6 +73,9 @@ public class PathUtils {
             return null;
         }
 
-        return new File(appRootDir, "shared_prefs");
+        return new File(
+                appRootDir,
+                "shared_prefs"
+        );
     }
 }

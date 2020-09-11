@@ -37,41 +37,4 @@ public class FileUtils {
         }
         return builder.toString();
     }
-
-    public static boolean writeAllText(
-            File file,
-            String data) {
-        return writeAllText(
-                file,
-                data,
-                StringUtils.STRING_ENCODING_UTF_8
-        );
-    }
-
-    public static boolean writeAllText(
-            File file,
-            String data,
-            String encoding) {
-        OutputStreamWriter writer = null;
-        try {
-            writer = new OutputStreamWriter(
-                    new FileOutputStream(file),
-                    encoding
-            );
-            writer.write(data);
-            writer.flush();
-            return true;
-        } catch (Exception e) {
-            Logger.getInstance(FileUtils.class.getSimpleName()).error(e.toString());
-        } finally {
-            try {
-                if (writer != null) {
-                    writer.close();
-                }
-            } catch (IOException e) {
-                // Skip
-            }
-        }
-        return false;
-    }
 }
