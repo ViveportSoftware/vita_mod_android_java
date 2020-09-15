@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
+import java.util.concurrent.Future;
 
 public class AndroidPreferenceStorageTest {
     @Test
@@ -33,6 +34,20 @@ public class AndroidPreferenceStorageTest {
         Preferences preferences1 = preferenceFactory.loadPreferences("customLabel");
         Assert.assertNotNull(preferences1);
         Assert.assertNotEquals(preferences0, preferences1);
+    }
+
+    @Test
+    public void android_1_loadPreferencesAsync() throws Exception {
+        JsonFactory.register(AndroidJsonFactory.class);
+        PreferenceStorage.register(AndroidPreferenceStorage.class);
+        PreferenceFactory preferenceFactory = PreferenceFactory.getInstance();
+        Assert.assertNotNull(preferenceFactory);
+        Future<Preferences> preferencesFuture0 = preferenceFactory.loadPreferencesAsync();
+        Assert.assertNotNull(preferencesFuture0);
+        Future<Preferences> preferencesFuture1 = preferenceFactory.loadPreferencesAsync("customLabel");
+        Assert.assertNotNull(preferencesFuture1);
+        Assert.assertNotEquals(preferencesFuture0, preferencesFuture1);
+        Assert.assertNotEquals(preferencesFuture0.get(), preferencesFuture1.get());
     }
 
     @Test
@@ -356,5 +371,31 @@ public class AndroidPreferenceStorageTest {
         Assert.assertEquals(0, preferences1.parseInt("customKey1"));
         Assert.assertEquals(0.0D, preferences1.parseDouble("customKey2"), 0.000000001D);
         Assert.assertFalse(preferences1.parseBoolean("customKey3"));
+    }
+
+    @Test
+    public void preferences_14_commitAsync() throws Exception {
+        JsonFactory.register(AndroidJsonFactory.class);
+        PreferenceStorage.register(AndroidPreferenceStorage.class);
+        PreferenceFactory preferenceFactory = PreferenceFactory.getInstance();
+        Assert.assertNotNull(preferenceFactory);
+        Future<Preferences> preferencesFuture = preferenceFactory.loadPreferencesAsync();
+        Assert.assertNotNull(preferencesFuture);
+        Preferences preferences = preferencesFuture.get();
+        Assert.assertNotNull(preferences);
+        Assert.assertTrue(preferences.commitAsync().get());
+    }
+
+    @Test
+    public void preferences_15_initializeAsync() throws Exception {
+        JsonFactory.register(AndroidJsonFactory.class);
+        PreferenceStorage.register(AndroidPreferenceStorage.class);
+        PreferenceFactory preferenceFactory = PreferenceFactory.getInstance();
+        Assert.assertNotNull(preferenceFactory);
+        Future<Preferences> preferencesFuture = preferenceFactory.loadPreferencesAsync();
+        Assert.assertNotNull(preferencesFuture);
+        Preferences preferences = preferencesFuture.get();
+        Assert.assertNotNull(preferences);
+        Assert.assertNotNull(preferences.initializeAsync().get());
     }
 }
