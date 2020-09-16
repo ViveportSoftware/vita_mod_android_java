@@ -4,11 +4,10 @@ import com.htc.vita.core.json.JsonArray;
 import com.htc.vita.core.json.JsonFactory;
 import com.htc.vita.core.json.JsonObject;
 import com.htc.vita.core.log.Logger;
+import com.htc.vita.core.util.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Locale;
 
 public class AndroidJsonFactory extends JsonFactory {
     @Override
@@ -36,8 +35,7 @@ public class AndroidJsonFactory extends JsonFactory {
         try {
             return new AndroidJsonArray(new JSONArray(content));
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonFactory.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonFactory.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not get JsonArray from content: %s",
                     content
             ));
@@ -50,8 +48,7 @@ public class AndroidJsonFactory extends JsonFactory {
         try {
             return new AndroidJsonObject(new JSONObject(content));
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonFactory.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonFactory.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not get JsonObject from content: %s",
                     content
             ));

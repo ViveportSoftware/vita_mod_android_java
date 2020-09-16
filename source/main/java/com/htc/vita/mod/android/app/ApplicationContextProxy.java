@@ -4,9 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import com.htc.vita.core.log.Logger;
+import com.htc.vita.core.util.StringUtils;
 
 import java.lang.reflect.Method;
-import java.util.Locale;
 
 public class ApplicationContextProxy {
     private static ApplicationContextProxy sInstance = null;
@@ -50,8 +50,7 @@ public class ApplicationContextProxy {
                     (Object[]) null
             );
         } catch (Exception e) {
-            Logger.getInstance(ApplicationContextProxy.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(ApplicationContextProxy.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not get application from ActivityThread: %s",
                     e
             ));

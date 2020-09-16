@@ -3,11 +3,10 @@ package com.htc.vita.mod.android.json;
 import com.htc.vita.core.json.JsonArray;
 import com.htc.vita.core.json.JsonObject;
 import com.htc.vita.core.log.Logger;
+import com.htc.vita.core.util.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Locale;
 
 public class AndroidJsonArray extends JsonArray {
     private final JSONArray mJSONArray;
@@ -355,8 +354,7 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getBoolean(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not parse boolean value by index: %d",
                     index
             ));
@@ -375,8 +373,7 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getDouble(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not parse double value by index: %d",
                     index
             ));
@@ -395,8 +392,7 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = (float) mJSONArray.getDouble(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not parse float value by index: %d",
                     index
             ));
@@ -415,8 +411,7 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getInt(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not parse int value by index: %d",
                     index
             ));
@@ -435,8 +430,7 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getLong(index);
         } catch (Exception e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not parse long value by index: %d",
                     index
             ));
@@ -455,8 +449,7 @@ public class AndroidJsonArray extends JsonArray {
         try {
             result = mJSONArray.getString(index);
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not parse String value by index: %d",
                     index
             ));
@@ -475,8 +468,7 @@ public class AndroidJsonArray extends JsonArray {
                 return new AndroidJsonArray(jsonArray);
             }
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not parse JavaArray value by index: %d",
                     index
             ));
@@ -495,8 +487,7 @@ public class AndroidJsonArray extends JsonArray {
                 return new AndroidJsonObject(jsonObject);
             }
         } catch (JSONException e) {
-            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(String.format(
-                    Locale.ROOT,
+            Logger.getInstance(AndroidJsonArray.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not parse JavaObject value by index: %d",
                     index
             ));

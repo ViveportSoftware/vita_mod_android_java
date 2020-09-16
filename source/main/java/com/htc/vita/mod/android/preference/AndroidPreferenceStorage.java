@@ -10,7 +10,6 @@ import com.htc.vita.mod.android.app.ApplicationContextProxy;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
@@ -93,8 +92,7 @@ public class AndroidPreferenceStorage extends PreferenceStorage {
             return null;
         }
 
-        String key = String.format(
-                Locale.ROOT,
+        String key = StringUtils.rootLocaleFormat(
                 "htc_%s_%s",
                 category,
                 label
