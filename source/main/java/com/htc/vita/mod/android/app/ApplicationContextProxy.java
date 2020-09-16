@@ -1,8 +1,10 @@
 package com.htc.vita.mod.android.app;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import com.htc.vita.core.log.Logger;
+import com.htc.vita.core.util.StringUtils;
 
 import java.lang.reflect.Method;
 
@@ -32,6 +34,7 @@ public class ApplicationContextProxy {
         return mApplicationContext;
     }
 
+    @SuppressLint("PrivateApi")
     private Application getApplicationFromActivityThread() {
         try {
             Class<?> clazz = Class.forName("android.app.ActivityThread");
@@ -47,7 +50,7 @@ public class ApplicationContextProxy {
                     (Object[]) null
             );
         } catch (Exception e) {
-            Logger.getInstance(ApplicationContextProxy.class.getSimpleName()).error(String.format(
+            Logger.getInstance(ApplicationContextProxy.class.getSimpleName()).error(StringUtils.rootLocaleFormat(
                     "Can not get application from ActivityThread: %s",
                     e
             ));
