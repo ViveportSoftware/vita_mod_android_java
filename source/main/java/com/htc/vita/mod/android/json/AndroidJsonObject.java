@@ -26,9 +26,9 @@ public class AndroidJsonObject extends JsonObject {
     @Override
     protected Set<String> onAllKeys() {
         if (mJSONObject == null) {
-            return new HashSet<String>();
+            return new HashSet<>();
         }
-        Set<String> result = new HashSet<String>();
+        Set<String> result = new HashSet<>();
         for (Iterator<String> it = mJSONObject.keys(); it.hasNext(); ) {
             String key = it.next();
             if (StringUtils.isNullOrWhiteSpace(key)) {

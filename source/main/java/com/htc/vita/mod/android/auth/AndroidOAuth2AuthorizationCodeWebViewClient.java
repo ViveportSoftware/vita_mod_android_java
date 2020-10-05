@@ -15,16 +15,14 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
 /* package */ class AndroidOAuth2AuthorizationCodeWebViewClient extends WebViewClient {
-    /* package */ static final Map<String, String> AUTHORIZATION_CODE_MAP = new HashMap<String, String>();
+    /* package */ static final Map<String, String> AUTHORIZATION_CODE_MAP = new HashMap<>();
 
     private static final String REQUEST_QUERY_PARAM_CODE = "code";
 
     private final CountDownLatch mCountDownLatch = new CountDownLatch(1);
-    private final Map<String, String> mJavaScriptActionMap = new HashMap<String, String>();
+    private final Map<String, String> mJavaScriptActionMap = new HashMap<>();
 
-    private boolean doShouldOverrideUrlLoading(
-            WebView webView,
-            String url) {
+    private boolean doShouldOverrideUrlLoading(String url) {
         Logger.getInstance(AndroidOAuth2AuthorizationCodeWebViewClient.class.getSimpleName()).debug(StringUtils.rootLocaleFormat(
                 "load \"%s\"",
                 url
@@ -94,7 +92,6 @@ import java.util.concurrent.CountDownLatch;
             WebView webView,
             String url) {
         return doShouldOverrideUrlLoading(
-                webView,
                 url
         );
     }
@@ -105,7 +102,6 @@ import java.util.concurrent.CountDownLatch;
             WebView webView,
             WebResourceRequest request) {
         return doShouldOverrideUrlLoading(
-                webView,
                 request.getUrl().toString()
         );
     }
