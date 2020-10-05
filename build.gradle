@@ -122,7 +122,7 @@ afterEvaluate {
 }
 
 dependencies {
-    implementation 'com.htc.vita:core:0.1.22'
+    implementation 'com.htc.vita:core:0.1.26'
     testImplementation 'junit:junit:4.12'
 
     // from plugin 'com.android.library'
