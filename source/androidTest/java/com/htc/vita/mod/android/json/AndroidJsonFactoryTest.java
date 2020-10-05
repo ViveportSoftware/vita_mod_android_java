@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class AndroidJsonFactoryTest  {
     @Test
-    public void testAndroid0GetInstance() {
+    public void android_0_getInstance() {
         JsonFactory.register(AndroidJsonFactory.class);
         JsonFactory jsonFactory = JsonFactory.getInstance();
         Assert.assertNotNull(jsonFactory);
