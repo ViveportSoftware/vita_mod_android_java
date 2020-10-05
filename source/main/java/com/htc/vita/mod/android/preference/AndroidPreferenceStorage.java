@@ -16,7 +16,7 @@ import java.util.concurrent.Future;
 
 public class AndroidPreferenceStorage extends PreferenceStorage {
     private Map<String, String> doLoad() {
-        Map<String, String> result = new HashMap<String, String>();
+        Map<String, String> result = new HashMap<>();
         SharedPreferences sharedPreferences = getSharedPreferences(
                 getCategory(),
                 getLabel()

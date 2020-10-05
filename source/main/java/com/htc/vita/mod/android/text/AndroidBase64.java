@@ -8,7 +8,7 @@ public class AndroidBase64 extends Base64 {
     @Override
     protected byte[] onDecode(
             String data,
-            Base64Option base64Option) throws Exception {
+            Base64Option base64Option) {
         if (base64Option == Base64Option.Basic) {
             return android.util.Base64.decode(
                     data,
@@ -36,7 +36,7 @@ public class AndroidBase64 extends Base64 {
     @Override
     protected String onEncodeToString(
             byte[] data,
-            Base64Option base64Option) throws Exception {
+            Base64Option base64Option) {
         if (base64Option == Base64Option.Basic) {
             return android.util.Base64.encodeToString(
                     data,

@@ -4,7 +4,7 @@ import android.util.Log;
 import com.htc.vita.core.log.Logger;
 
 public class AndroidLogger extends Logger {
-    protected AndroidLogger(String name) {
+    public AndroidLogger(String name) {
         super(name);
     }
 

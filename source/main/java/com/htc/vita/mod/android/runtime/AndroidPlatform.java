@@ -1,5 +1,6 @@
 package com.htc.vita.mod.android.runtime;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings;
@@ -30,6 +31,7 @@ public class AndroidPlatform extends Platform {
         if (contentResolver == null) {
             return null;
         }
+        @SuppressLint("HardwareIds")
         String androidId = Settings.Secure.getString(
                 contentResolver,
                 Settings.Secure.ANDROID_ID
