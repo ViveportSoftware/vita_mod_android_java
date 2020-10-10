@@ -8,6 +8,7 @@ import com.htc.vita.core.util.StringUtils;
 
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class AndroidOAuth2AuthorizationCodeReceiver extends OAuth2AuthorizationCodeReceiver {
     private final CountDownLatch mCountDownLatch = new CountDownLatch(1);
@@ -42,8 +43,7 @@ public class AndroidOAuth2AuthorizationCodeReceiver extends OAuth2AuthorizationC
                             return;
                         }
                         try {
-                            //noinspection BusyWait
-                            Thread.sleep(1000);
+                            TimeUnit.SECONDS.sleep(1);
                         } catch (InterruptedException e) {
                             Logger.getInstance(AndroidOAuth2AuthorizationCodeReceiver.class.getSimpleName()).error(e.toString());
                         }
