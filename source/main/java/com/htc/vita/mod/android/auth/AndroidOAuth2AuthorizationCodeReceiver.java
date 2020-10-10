@@ -8,6 +8,7 @@ import com.htc.vita.core.util.StringUtils;
 
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class AndroidOAuth2AuthorizationCodeReceiver extends OAuth2AuthorizationCodeReceiver {
     private final CountDownLatch mCountDownLatch = new CountDownLatch(1);
@@ -37,19 +38,18 @@ public class AndroidOAuth2AuthorizationCodeReceiver extends OAuth2AuthorizationC
         TaskRunner.execute(new Runnable() {
                 @Override
                 public void run() {
-                        while (!AndroidOAuth2AuthorizationCodeWebViewClient.AUTHORIZATION_CODE_MAP.containsKey(mRedirectUri)) {
-                            if (mCancellationToken.isCancellationRequested()) {
-                                return;
-                            }
-                            try {
-                                //noinspection BusyWait
-                                Thread.sleep(1000);
-                            } catch (InterruptedException e) {
-                                Logger.getInstance(AndroidOAuth2AuthorizationCodeReceiver.class.getSimpleName()).error(e.toString());
-                            }
+                    while (!AndroidOAuth2AuthorizationCodeWebViewClient.AUTHORIZATION_CODE_MAP.containsKey(mRedirectUri)) {
+                        if (mCancellationToken.isCancellationRequested()) {
+                            return;
                         }
-                        mAuthorizationCode = AndroidOAuth2AuthorizationCodeWebViewClient.AUTHORIZATION_CODE_MAP.remove(mRedirectUri);
-                        mCountDownLatch.countDown();
+                        try {
+                            TimeUnit.SECONDS.sleep(1);
+                        } catch (InterruptedException e) {
+                            Logger.getInstance(AndroidOAuth2AuthorizationCodeReceiver.class.getSimpleName()).error(e.toString());
+                        }
+                    }
+                    mAuthorizationCode = AndroidOAuth2AuthorizationCodeWebViewClient.AUTHORIZATION_CODE_MAP.remove(mRedirectUri);
+                    mCountDownLatch.countDown();
                 }
         });
         return this;
