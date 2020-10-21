@@ -12,9 +12,10 @@ public class AndroidLogger extends Logger {
     protected void onDebug(
             String tag,
             String message) {
-        Log.d(
+        onDebug(
                 tag,
-                message
+                message,
+                null
         );
     }
 
@@ -25,13 +26,13 @@ public class AndroidLogger extends Logger {
             Exception exception) {
         if (exception == null) {
             Log.d(
-                    tag,
-                    message
+                    getName(),
+                    "[" + tag + "] " + message
             );
         } else {
             Log.d(
-                    tag,
-                    message,
+                    getName(),
+                    "[" + tag + "] " + message,
                     exception
             );
         }
@@ -41,9 +42,10 @@ public class AndroidLogger extends Logger {
     protected void onError(
             String tag,
             String message) {
-        Log.e(
+        onError(
                 tag,
-                message
+                message,
+                null
         );
     }
 
@@ -54,13 +56,13 @@ public class AndroidLogger extends Logger {
             Exception exception) {
         if (exception == null) {
             Log.e(
-                    tag,
-                    message
+                    getName(),
+                    "[" + tag + "] " + message
             );
         } else {
             Log.e(
-                    tag,
-                    message,
+                    getName(),
+                    "[" + tag + "] " + message,
                     exception
             );
         }
@@ -70,9 +72,10 @@ public class AndroidLogger extends Logger {
     protected void onFatal(
             String tag,
             String message) {
-        Log.e(
+        onFatal(
                 tag,
-                message
+                message,
+                null
         );
     }
 
@@ -83,13 +86,13 @@ public class AndroidLogger extends Logger {
             Exception exception) {
         if (exception == null) {
             Log.wtf(
-                    tag,
-                    message
+                    getName(),
+                    "[" + tag + "] " + message
             );
         } else {
             Log.wtf(
-                    tag,
-                    message,
+                    getName(),
+                    "[" + tag + "] " + message,
                     exception
             );
         }
@@ -99,9 +102,10 @@ public class AndroidLogger extends Logger {
     protected void onInfo(
             String tag,
             String message) {
-        Log.i(
+        onInfo(
                 tag,
-                message
+                message,
+                null
         );
     }
 
@@ -112,13 +116,13 @@ public class AndroidLogger extends Logger {
             Exception exception) {
         if (exception == null) {
             Log.i(
-                    tag,
-                    message
+                    getName(),
+                    "[" + tag + "] " + message
             );
         } else {
             Log.i(
-                    tag,
-                    message,
+                    getName(),
+                    "[" + tag + "] " + message,
                     exception
             );
         }
@@ -133,9 +137,10 @@ public class AndroidLogger extends Logger {
     protected void onTrace(
             String tag,
             String message) {
-        Log.v(
+        onTrace(
                 tag,
-                message
+                message,
+                null
         );
     }
 
@@ -146,13 +151,13 @@ public class AndroidLogger extends Logger {
             Exception exception) {
         if (exception == null) {
             Log.v(
-                    tag,
-                    message
+                    getName(),
+                    "[" + tag + "] " + message
             );
         } else {
             Log.v(
-                    tag,
-                    message,
+                    getName(),
+                    "[" + tag + "] " + message,
                     exception
             );
         }
@@ -162,9 +167,10 @@ public class AndroidLogger extends Logger {
     protected void onWarn(
             String tag,
             String message) {
-        Log.w(
+        onWarn(
                 tag,
-                message
+                message,
+                null
         );
     }
 
@@ -175,13 +181,13 @@ public class AndroidLogger extends Logger {
             Exception exception) {
         if (exception == null) {
             Log.w(
-                    tag,
-                    message
+                    getName(),
+                    "[" + tag + "] " + message
             );
         } else {
             Log.w(
-                    tag,
-                    message,
+                    getName(),
+                    "[" + tag + "] " + message,
                     exception
             );
         }

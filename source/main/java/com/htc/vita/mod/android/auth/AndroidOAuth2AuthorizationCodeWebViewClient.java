@@ -37,6 +37,7 @@ import java.util.concurrent.CountDownLatch;
                             queryParams.get(REQUEST_QUERY_PARAM_CODE)
                     );
                     mCountDownLatch.countDown();
+                    return true;
                 }
             }
         } catch (MalformedURLException e) {
