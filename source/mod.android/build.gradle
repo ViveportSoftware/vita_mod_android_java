@@ -145,7 +145,7 @@ publishing {
                 // append dependencies into pom.xml
                 pom.withXml {
                     def dependenciesNode = asNode().appendNode('dependencies')
-                    configurations.compile.allDependencies.each {
+                    configurations.implementation.allDependencies.each {
                         if (it.group != null && (it.name != null || "unspecified".equals(it.name)) && it.version != null) {
                             def dependencyNode = dependenciesNode.appendNode('dependency')
                             dependencyNode.appendNode('groupId', it.group)
