@@ -139,7 +139,7 @@ publishing {
         mavenAndroid(MavenPublication) {
             artifacts {
                 groupId "${project.group}"
-                artifactId "${rootProject.name}"
+                artifactId "${project.name}"
                 version "${project.version}"
 
                 // append dependencies into pom.xml
