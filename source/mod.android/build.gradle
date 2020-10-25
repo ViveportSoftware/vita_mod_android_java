@@ -177,7 +177,7 @@ publishing {
                 if (project.version.endsWith('-SNAPSHOT')) {
                     buildType = 'debug'
                 }
-                // artifact "${project.rootDir.getPath()}/temp/${project.name}/outputs/aar/${rootProject.name}-${project.version}.aar"
+                artifact "${project.rootDir.getPath()}/temp/${project.name}/outputs/aar/${project.name}-${project.version}.aar"
                 artifact "${project.rootDir.getPath()}/temp/${project.name}/intermediates/packaged-classes/${buildType}/classes.jar"
             }
         }
