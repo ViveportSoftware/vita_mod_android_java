@@ -1,1 +1,2 @@
-rootProject.name = 'mod.android'
+rootProject.name = 'mod.android.root'
+include 'source:mod.android'
