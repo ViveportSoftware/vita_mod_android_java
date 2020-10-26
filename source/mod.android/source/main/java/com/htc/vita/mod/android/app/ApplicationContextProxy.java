@@ -31,6 +31,14 @@ public class ApplicationContextProxy {
         if (application != null) {
             mApplicationContext = application.getApplicationContext();
         }
+        if (mApplicationContext == null) {
+            Logger.getInstance(ApplicationContextProxy.class.getSimpleName()).error(StringUtils.join(
+                    " ",
+                    "Can not find available application context.",
+                    "Please apply context via \"ApplicationContextProxy.getInstance().apply(Context context)\" when your application start.",
+                    "Application instance is a good place to apply context."
+            ));
+        }
         return mApplicationContext;
     }
 
