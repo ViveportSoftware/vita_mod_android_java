@@ -56,10 +56,10 @@ allprojects {
         google()
         jcenter()
         maven {
-            url 'https://dl.bintray.com/viveportsoftware/maven-public'
+            url 'https://pkgs.dev.azure.com/viveportsoftware/Vita/_packaging/maven-release/maven/v1'
         }
         maven {
-            url 'https://www.myget.org/F/viveportsoftware/maven'
+            url 'https://pkgs.dev.azure.com/viveportsoftware/Vita/_packaging/maven-snapshot/maven/v1'
         }
     }
 }
@@ -126,7 +126,7 @@ afterEvaluate {
 }
 
 dependencies {
-    implementation 'com.htc.vita:core:0.1.34'
+    implementation 'com.htc.vita:core:0.1.39'
     testImplementation 'junit:junit:4.12'
 
     // from plugin 'com.android.library'
